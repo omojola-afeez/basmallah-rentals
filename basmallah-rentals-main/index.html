@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basmallah Rentals — Event Equipment, Ilorin</title>
+<meta name="description" content="Premium event equipment hire in Ilorin, Kwara State. Chairs, tables, canopies, cooking pots delivered and set up at your venue. Call 0812 403 8496.">
+<meta property="og:title" content="Basmallah Rentals — Event Equipment Hire, Ilorin">
+<meta property="og:description" content="Chairs, tables, canopies, pots and more — delivered and set up at your Ilorin venue.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0d4a3a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Basmallah Rentals">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-brand" onclick="goto('home')">
+    <div class="nav-mark">BR</div>
+    <div>
+      <div class="nav-name">Basmallah Rentals</div>
+      <div class="nav-sub">Irewolede, Ilorin · Kwara State</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a onclick="goto('home')">Home</a></li>
+    <li><a onclick="goto('catalog')">Equipment</a></li>
+    <li><a onclick="goto('booking')">Book Now</a></li>
+    <li><a onclick="goto('contact')">Contact</a></li>
+    <li><a onclick="adminLogin()" class="nav-cta">Admin ▸</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMob()" aria-label="Menu">☰</button>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mob-menu" id="mob-menu">
+  <a onclick="goto('home');closeMob()">🏠 Home</a>
+  <a onclick="goto('catalog');closeMob()">🪑 Equipment</a>
+  <a onclick="goto('booking');closeMob()">📋 Book Now</a>
+  <a onclick="goto('contact');closeMob()">📞 Contact</a>
+  <a onclick="adminLogin();closeMob()" class="nav-cta">Admin ▸</a>
+</div>
+
+<!-- Toast container -->
+<div id="toasts"></div>
+
+<!-- ══════════════ HOME ══════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div style="position:relative;z-index:1;">
+      <div class="hero-badge">✦ Ilorin's Premier Event Equipment Rentals</div>
+      <h1>Your Event.<br><em>Our Equipment.</em><br>One Call Away.</h1>
+      <p>Chairs, tables, canopies, pots and everything in between — delivered and set up at your venue across Ilorin, Kwara State.</p>
+      <div class="hero-btns">
+        <button class="btn btn-gold" onclick="goto('booking')">📋 Book Equipment</button>
+        <button class="btn btn-ghost" onclick="goto('catalog')">🪑 Browse Catalog</button>
+      </div>
+      <div style="margin-bottom:.5rem;">
+        <span class="hero-social-lbl">Book via</span>
+      </div>
+      <div class="hero-social">
+        <button class="soc-btn s-wa" onclick="openWA('Hello! I want to book from Basmallah Rentals, Ilorin.')" title="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.057 23.492a.5.5 0 0 0 .613.635l5.757-1.505A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.875 9.875 0 0 1-5.032-1.372l-.36-.214-3.733.977.999-3.645-.235-.374A9.854 9.854 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118c5.466 0 9.882 4.415 9.882 9.882 0 5.466-4.416 9.882-9.882 9.882z"/></svg></button>
+        <button class="soc-btn s-fb" onclick="window.open('https://facebook.com','_blank')" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></button>
+        <button class="soc-btn s-ig" onclick="window.open('https://instagram.com','_blank')" title="Instagram"><svg viewBox="0 0 24 24" fill="none" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><defs><radialGradient id="igG" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><rect width="20" height="20" x="2" y="2" rx="5" fill="url(#igG)"/><path d="M12 7a5 5 0 1 0 0 10A5 5 0 0 0 12 7zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" fill="white"/><circle cx="17.5" cy="6.5" r="1.25" fill="white"/></svg></button>
+        <button class="soc-btn s-tt" onclick="window.open('https://tiktok.com','_blank')" title="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-6.13 6.3 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.77a4.85 4.85 0 0 1-1.01-.08z"/></svg></button>
+        <button class="soc-btn s-yt" onclick="window.open('https://youtube.com','_blank')" title="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></button>
+        <button class="soc-btn s-tw" onclick="window.open('https://twitter.com','_blank')" title="Twitter/X"><svg viewBox="0 0 24 24" fill="currentColor" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></button>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-cards">
+        <div class="hcard"><div class="hcard-icon">🪑</div><div class="hcard-name">Executive Chairs</div><div class="hcard-detail">Padded &amp; elegant</div><div class="hcard-price">₦250/chair</div></div>
+        <div class="hcard"><div class="hcard-icon">⛺</div><div class="hcard-name">Canopy Tents</div><div class="hcard-detail">All sizes</div><div class="hcard-price">₦8,000/unit</div></div>
+        <div class="hcard"><div class="hcard-icon">🍲</div><div class="hcard-name">Cooking Pots</div><div class="hcard-detail">50L – 300L</div><div class="hcard-price">₦2,500/pot</div></div>
+        <div class="hcard"><div class="hcard-icon">🍽️</div><div class="hcard-name">Round Tables</div><div class="hcard-detail">6 &amp; 8 seater</div><div class="hcard-price">₦1,500/table</div></div>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><span class="hstat-num">500+</span><span class="hstat-lbl">Events Served</span></div>
+        <div class="hstat"><span class="hstat-num">2,000+</span><span class="hstat-lbl">Chairs &amp; Tables</span></div>
+        <div class="hstat"><span class="hstat-num">4.9★</span><span class="hstat-lbl">Customer Rating</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <div class="sec">
+    <div class="sec-inner">
+      <div class="sec-head">
+        <div class="eyebrow">Browse by Type</div>
+        <h2 class="sec-title">What Are You Looking For?</h2>
+        <p class="sec-sub">From white plastic chairs to luxury canopies — we have it all.</p>
+      </div>
+      <div class="cats-grid">
+        <div class="cat-card" onclick="filterAndGo('Chairs')"><div class="cat-icon">🪑</div><div class="cat-name">Chairs</div><div class="cat-count">3 types</div></div>
+        <div class="cat-card" onclick="filterAndGo('Tables')"><div class="cat-icon">🍽️</div><div class="cat-name">Tables</div><div class="cat-count">3 types</div></div>
+        <div class="cat-card" onclick="filterAndGo('Canopies')"><div class="cat-icon">⛺</div><div class="cat-name">Canopies</div><div class="cat-count">2 types</div></div>
+        <div class="cat-card" onclick="filterAndGo('Cooking')"><div class="cat-icon">🍲</div><div class="cat-name">Cooking</div><div class="cat-count">5 types</div></div>
+        <div class="cat-card" onclick="filterAndGo('Linen')"><div class="cat-icon">🎀</div><div class="cat-name">Linen &amp; Decor</div><div class="cat-count">2 types</div></div>
+        <div class="cat-card" onclick="filterAndGo('Other')"><div class="cat-icon">⚡</div><div class="cat-name">Other Equipment</div><div class="cat-count">1 type</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Featured equipment -->
+  <div class="sec sec-warm">
+    <div class="sec-inner">
+      <div class="sec-head">
+        <div class="eyebrow">Our Inventory</div>
+        <h2 class="sec-title">Popular Equipment</h2>
+        <p class="sec-sub">Everything you need for a successful event in Ilorin.</p>
+      </div>
+      <div class="eq-grid" id="home-featured"></div>
+      <div style="text-align:center;margin-top:2.2rem;">
+        <button class="btn btn-grn" onclick="goto('catalog')">View Full Catalog →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <div class="sec sec-dark">
+    <div class="sec-inner">
+      <div class="sec-head">
+        <div class="eyebrow">Simple Process</div>
+        <h2 class="sec-title light">How It Works</h2>
+        <p class="sec-sub light-sub">From inquiry to event day — we handle everything.</p>
+      </div>
+      <div class="how-grid">
+        <div class="how-card"><div class="how-num">01</div><div class="how-icon">📱</div><div class="how-title">Book via Any Channel</div><div class="how-desc">Use our website, WhatsApp, Facebook, Instagram or TikTok. We're everywhere you are.</div></div>
+        <div class="how-card"><div class="how-num">02</div><div class="how-icon">✅</div><div class="how-title">Get Confirmed</div><div class="how-desc">We confirm your order via WhatsApp and email within 2 hours with final pricing.</div></div>
+        <div class="how-card"><div class="how-num">03</div><div class="how-icon">🚚</div><div class="how-title">Delivery &amp; Setup</div><div class="how-desc">Our team delivers and arranges everything at your venue before guests arrive.</div></div>
+        <div class="how-card"><div class="how-num">04</div><div class="how-icon">🎉</div><div class="how-title">Enjoy Your Event</div><div class="how-desc">Relax and enjoy. We collect everything after — zero stress on your side.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gallery -->
+  <div class="sec">
+    <div class="sec-inner">
+      <div class="sec-head">
+        <div class="eyebrow">Our Work</div>
+        <h2 class="sec-title">Events We've Served</h2>
+        <p class="sec-sub">Real setups by Basmallah Rentals across Ilorin.</p>
+      </div>
+      <div class="gallery" id="gallery"></div>
+      <div style="text-align:center;margin-top:2rem;">
+        <button class="btn btn-grn" onclick="goto('booking')">Book for Your Event →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+  <div class="sec sec-warm">
+    <div class="sec-inner">
+      <div class="sec-head">
+        <div class="eyebrow">Reviews</div>
+        <h2 class="sec-title">Trusted by Ilorin Families</h2>
+        <p class="sec-sub">Real feedback from real events across Ilorin.</p>
+      </div>
+      <div class="testi-grid">
+        <div class="card testi"><div class="testi-stars">★★★★★</div><p class="testi-text">"Basmallah Rentals made my daughter's wedding stress-free. All 300 chairs and tables were set up before any guest arrived. Professional and reliable!"</p><div class="testi-auth"><div class="testi-ava">👩</div><div><div class="testi-name">Hajia Fatimah Adeyemi</div><div class="testi-ev">Wedding Reception, GRA Ilorin</div></div></div></div>
+        <div class="card testi"><div class="testi-stars">★★★★★</div><p class="testi-text">"Booked via WhatsApp on Tuesday, equipment arrived Saturday morning, perfectly arranged. The canopies were spotless. Will use every year!"</p><div class="testi-auth"><div class="testi-ava">👨</div><div><div class="testi-name">Alhaji Yusuf Olawale</div><div class="testi-ev">Corporate Dinner, Tanke Ilorin</div></div></div></div>
+        <div class="card testi"><div class="testi-stars">★★★★★</div><p class="testi-text">"The pots were huge and spotless. We fed 500+ guests perfectly. The executive chairs were elegant — everyone kept complimenting them!"</p><div class="testi-auth"><div class="testi-ava">👩</div><div><div class="testi-name">Mrs Kemi Babatunde</div><div class="testi-ev">Baby Naming, Oke-Ose Ilorin</div></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="sec" style="background:var(--gdp);border-top:1px solid rgba(201,146,42,.2);">
+    <div class="sec-inner" style="text-align:center;">
+      <div class="eyebrow">Ready to Book?</div>
+      <h2 class="sec-title">Plan Your Event With Confidence</h2>
+      <p class="sec-sub" style="margin-bottom:1.8rem;">Join hundreds of happy customers across Ilorin. Get a free quote today.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <button class="btn btn-gold" onclick="goto('booking')">📋 Book Now — It's Free</button>
+        <button class="btn btn-wa" onclick="openWA('Hello Basmallah Rentals! I want to get a quote for my event in Ilorin.')">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.057 23.492a.5.5 0 0 0 .613.635l5.757-1.505A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.875 9.875 0 0 1-5.032-1.372l-.36-.214-3.733.977.999-3.645-.235-.374A9.854 9.854 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118c5.466 0 9.882 4.415 9.882 9.882 0 5.466-4.416 9.882-9.882 9.882z"/></svg> 0812 403 8496
+        </button>
+        <button class="btn btn-wa" style="background:#128C7E;" onclick="openWA('Hello Basmallah Rentals! I want to get a quote for my event in Ilorin.','2348063726650')">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.057 23.492a.5.5 0 0 0 .613.635l5.757-1.505A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.875 9.875 0 0 1-5.032-1.372l-.36-.214-3.733.977.999-3.645-.235-.374A9.854 9.854 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118c5.466 0 9.882 4.415 9.882 9.882 0 5.466-4.416 9.882-9.882 9.882z"/></svg> 0806 372 6650
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page-home -->
+
+<!-- ══════════════ CATALOG ══════════════ -->
+<div id="page-catalog" class="page">
+  <div class="sec">
+    <div class="sec-inner">
+      <button onclick="goBack()" style="background:none;border:none;cursor:pointer;color:var(--gr3);font-size:.95rem;padding:0;margin-bottom:1rem;display:inline-flex;align-items:center;gap:.3rem;">← Back</button>
+      <div class="sec-head">
+        <div class="eyebrow">Full Inventory</div>
+        <h2 class="sec-title">Equipment Catalog</h2>
+        <p class="sec-sub">Click any item to add it to your booking list.</p>
+      </div>
+      <div class="catalog-tabs" id="catalog-tabs"></div>
+      <div class="eq-grid" id="catalog-grid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ BOOKING ══════════════ -->
+<div id="page-booking" class="page">
+  <div class="sec">
+    <div class="sec-inner">
+      <button onclick="goBack()" style="background:none;border:none;cursor:pointer;color:var(--gr3);font-size:.95rem;padding:0;margin-bottom:1rem;display:inline-flex;align-items:center;gap:.3rem;">← Back</button>
+      <div class="sec-head">
+        <div class="eyebrow">Reserve Equipment</div>
+        <h2 class="sec-title">Book Your Equipment</h2>
+        <p class="sec-sub">Fill in the form. We confirm via WhatsApp &amp; email within 2 hours.</p>
+      </div>
+      <div class="booking-layout">
+
+        <div class="card booking-card">
+          <div class="booking-hd">
+            <h2>Your Event Details</h2>
+            <p>All fields marked * are required</p>
+          </div>
+          <div class="booking-body" id="booking-form-body">
+            <div class="fg2" style="gap:.9rem;">
+              <div class="fg"><label class="lbl">First Name *</label><input class="fld" id="b-fn" placeholder="Fatimah"></div>
+              <div class="fg"><label class="lbl">Last Name *</label><input class="fld" id="b-ln" placeholder="Adeyemi"></div>
+              <div class="fg full"><label class="lbl">Phone / WhatsApp *</label><input class="fld" id="b-phone" type="tel" placeholder="+234 812 403 8496"></div>
+              <div class="fg full"><label class="lbl">Email Address</label><input class="fld" id="b-email" type="email" placeholder="your@email.com"></div>
+              <div class="fg full"><label class="lbl">Event Type *</label>
+                <select class="fld" id="b-evtype">
+                  <option value="">— Select event type —</option>
+                  <option>Wedding / Nikkah</option><option>Baby Naming</option><option>Birthday Party</option>
+                  <option>Corporate Event / Dinner</option><option>Burial / Condolence</option>
+                  <option>Religious Gathering</option><option>Graduation Party</option><option>Other</option>
+                </select>
+              </div>
+              <div class="fg"><label class="lbl">Event Date *</label><input class="fld" id="b-date" type="date"></div>
+              <div class="fg"><label class="lbl">Duration</label>
+                <select class="fld" id="b-dur"><option>1 Day</option><option>2 Days</option><option>3 Days</option><option>Full Weekend</option></select>
+              </div>
+              <div class="fg full"><label class="lbl">Venue / Location in Ilorin *</label><input class="fld" id="b-venue" placeholder="e.g. Event Centre, GRA Ilorin"></div>
+              <div class="fg full"><label class="lbl">Expected Guests *</label>
+                <select class="fld" id="b-guests">
+                  <option>Below 50</option><option>50 – 100</option><option>100 – 200</option>
+                  <option>200 – 500</option><option>500 – 1,000</option><option>Above 1,000</option>
+                </select>
+              </div>
+              <div class="fg full"><label class="lbl" style="margin-bottom:8px;">How are you booking? *</label>
+                <div class="platform-grid" id="plat-grid">
+                  <div class="plat-btn sel" data-p="Website" onclick="selPlat(this)"><div class="plat-icon">🌐</div><div class="plat-name">Website</div></div>
+                  <div class="plat-btn" data-p="WhatsApp" onclick="selPlat(this)"><div class="plat-icon"><svg viewBox="0 0 24 24" fill="currentColor" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.057 23.492a.5.5 0 0 0 .613.635l5.757-1.505A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.875 9.875 0 0 1-5.032-1.372l-.36-.214-3.733.977.999-3.645-.235-.374A9.854 9.854 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118c5.466 0 9.882 4.415 9.882 9.882 0 5.466-4.416 9.882-9.882 9.882z"/></svg></div><div class="plat-name">WhatsApp</div></div>
+                  <div class="plat-btn" data-p="Facebook" onclick="selPlat(this)"><div class="plat-icon"><svg viewBox="0 0 24 24" fill="currentColor" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div><div class="plat-name">Facebook</div></div>
+                  <div class="plat-btn" data-p="Instagram" onclick="selPlat(this)"><div class="plat-icon"><svg viewBox="0 0 24 24" fill="none" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><defs><radialGradient id="igG" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><rect width="20" height="20" x="2" y="2" rx="5" fill="url(#igG)"/><path d="M12 7a5 5 0 1 0 0 10A5 5 0 0 0 12 7zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" fill="white"/><circle cx="17.5" cy="6.5" r="1.25" fill="white"/></svg></div><div class="plat-name">Instagram</div></div>
+                  <div class="plat-btn" data-p="TikTok" onclick="selPlat(this)"><div class="plat-icon"><svg viewBox="0 0 24 24" fill="currentColor" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-6.13 6.3 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.77a4.85 4.85 0 0 1-1.01-.08z"/></svg></div><div class="plat-name">TikTok</div></div>
+                  <div class="plat-btn" data-p="Referral" onclick="selPlat(this)"><div class="plat-icon">🤝</div><div class="plat-name">Referral</div></div>
+                </div>
+              </div>
+              <div class="fg full"><label class="lbl">Additional Notes</label><textarea class="fld" id="b-notes" placeholder="Special requests, delivery time, etc."></textarea></div>
+            </div>
+            <div class="booking-actions">
+              <button class="btn btn-wa" onclick="bookWA()"><svg viewBox="0 0 24 24" fill="currentColor" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.057 23.492a.5.5 0 0 0 .613.635l5.757-1.505A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.875 9.875 0 0 1-5.032-1.372l-.36-.214-3.733.977.999-3.645-.235-.374A9.854 9.854 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118c5.466 0 9.882 4.415 9.882 9.882 0 5.466-4.416 9.882-9.882 9.882z"/></svg> Confirm via WhatsApp</button>
+              <button class="btn btn-grn" onclick="submitBooking()">✅ Submit Booking</button>
+            </div>
+            <p style="text-align:center;margin-top:.7rem;font-size:.73rem;color:var(--tmu);">🔒 Your information is kept private.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="card order-card">
+            <div class="order-hd"><h3>🛒 Your Equipment List</h3></div>
+            <div class="order-body">
+              <ul class="order-items" id="order-items">
+                <li class="order-empty">No items yet.<br><span style="font-size:.77rem;cursor:pointer;color:var(--gr3);" onclick="goto('catalog')">Browse catalog →</span></li>
+              </ul>
+              <div class="order-total" id="order-total" style="display:none;">
+                <span class="order-total-lbl">Estimated Total</span>
+                <span class="order-total-val" id="order-total-val">₦0</span>
+              </div>
+              <div class="price-box" id="price-box" style="display:none;">
+                <div class="price-box-hd">📊 Breakdown</div>
+                <div id="price-lines"></div>
+              </div>
+              <div class="note-box">✦ Prices are estimates. Final pricing confirmed via WhatsApp. Delivery included in Ilorin.</div>
+              <button class="btn btn-gold" style="width:100%;margin-top:1rem;" onclick="goto('catalog')">➕ Add More Items</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ CONTACT ══════════════ -->
+<div id="page-contact" class="page">
+  <div class="sec">
+    <div class="sec-inner">
+      <button onclick="goBack()" style="background:none;border:none;cursor:pointer;color:var(--gr3);font-size:.95rem;padding:0;margin-bottom:1rem;display:inline-flex;align-items:center;gap:.3rem;">← Back</button>
+      <div class="contact-grid">
+        <div class="cinfo">
+          <div class="eyebrow">Get In Touch</div>
+          <h2>We're Always Available</h2>
+          <p>Questions, quotes, or last-minute bookings — we're here. Based in Irewolede, Ilorin, Kwara State.</p>
+          <div class="cinfo-item"><div class="cinfo-icon">📞</div><div class="cinfo-text"><strong>0812 403 8496 &nbsp;|&nbsp; 0806 372 6650</strong><small>Call or SMS · Mon–Sun, 7am–9pm</small></div></div>
+          <div class="cinfo-item"><div class="cinfo-icon"><svg viewBox="0 0 24 24" fill="currentColor" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.057 23.492a.5.5 0 0 0 .613.635l5.757-1.505A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.875 9.875 0 0 1-5.032-1.372l-.36-.214-3.733.977.999-3.645-.235-.374A9.854 9.854 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118c5.466 0 9.882 4.415 9.882 9.882 0 5.466-4.416 9.882-9.882 9.882z"/></svg></div><div class="cinfo-text"><strong>WhatsApp: 0812 403 8496 / 0806 372 6650</strong><small>Fastest reply — usually within minutes, 24/7</small></div></div>
+          <div class="cinfo-item"><div class="cinfo-icon">📧</div><div class="cinfo-text"><strong>info@basmallahrentals.ng</strong><small>Email replies within 2 hours</small></div></div>
+          <div class="cinfo-item"><div class="cinfo-icon">📍</div><div class="cinfo-text"><strong>Irewolede, Ilorin, Kwara State</strong><small>Serving all of Ilorin &amp; expanding</small></div></div>
+          <div style="margin-top:1.3rem;">
+            <button class="btn btn-wa" onclick="openWA('Hello Basmallah Rentals! I have an enquiry.')"><svg viewBox="0 0 24 24" fill="currentColor" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.057 23.492a.5.5 0 0 0 .613.635l5.757-1.505A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.875 9.875 0 0 1-5.032-1.372l-.36-.214-3.733.977.999-3.645-.235-.374A9.854 9.854 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118c5.466 0 9.882 4.415 9.882 9.882 0 5.466-4.416 9.882-9.882 9.882z"/></svg> Chat on WhatsApp</button>
+          </div>
+          <div class="soc-grid" style="margin-top:1.5rem;">
+            <a class="soc-card" style="background:#e8f5e9;" onclick="openWA('Hello Basmallah Rentals!')"><div class="soc-card-icon"><svg viewBox="0 0 24 24" fill="currentColor" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.057 23.492a.5.5 0 0 0 .613.635l5.757-1.505A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.875 9.875 0 0 1-5.032-1.372l-.36-.214-3.733.977.999-3.645-.235-.374A9.854 9.854 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118c5.466 0 9.882 4.415 9.882 9.882 0 5.466-4.416 9.882-9.882 9.882z"/></svg></div><div class="soc-card-lbl" style="color:#25D366;">WhatsApp</div></a>
+            <a class="soc-card" style="background:#e8eaf6;" onclick="window.open('https://facebook.com','_blank')"><div class="soc-card-icon"><svg viewBox="0 0 24 24" fill="currentColor" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div><div class="soc-card-lbl" style="color:#1877F2;">Facebook</div></a>
+            <a class="soc-card" style="background:#fce4ec;" onclick="window.open('https://instagram.com','_blank')"><div class="soc-card-icon"><svg viewBox="0 0 24 24" fill="none" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><defs><radialGradient id="igG" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><rect width="20" height="20" x="2" y="2" rx="5" fill="url(#igG)"/><path d="M12 7a5 5 0 1 0 0 10A5 5 0 0 0 12 7zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" fill="white"/><circle cx="17.5" cy="6.5" r="1.25" fill="white"/></svg></div><div class="soc-card-lbl" style="color:#e1306c;">Instagram</div></a>
+            <a class="soc-card" style="background:#f3e5f5;" onclick="window.open('https://tiktok.com','_blank')"><div class="soc-card-icon"><svg viewBox="0 0 24 24" fill="currentColor" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-6.13 6.3 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.77a4.85 4.85 0 0 1-1.01-.08z"/></svg></div><div class="soc-card-lbl" style="color:#000;">TikTok</div></a>
+            <a class="soc-card" style="background:#ffebee;" onclick="window.open('https://youtube.com','_blank')"><div class="soc-card-icon"><svg viewBox="0 0 24 24" fill="currentColor" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></div><div class="soc-card-lbl" style="color:#FF0000;">YouTube</div></a>
+            <a class="soc-card" style="background:#e3f2fd;" onclick="window.open('https://twitter.com','_blank')"><div class="soc-card-icon"><svg viewBox="0 0 24 24" fill="currentColor" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div><div class="soc-card-lbl" style="color:#1DA1F2;">Twitter</div></a>
+          </div>
+        </div>
+        <div class="card" style="padding:1.8rem;">
+          <h3 style="font-family:var(--fd);font-size:1.3rem;margin-bottom:1.4rem;">Send a Message</h3>
+          <div class="fg2" style="gap:.85rem;">
+            <div class="fg"><label class="lbl">First Name</label><input class="fld" id="c-fn" placeholder="Yusuf"></div>
+            <div class="fg"><label class="lbl">Last Name</label><input class="fld" id="c-ln" placeholder="Olawale"></div>
+            <div class="fg full"><label class="lbl">Email</label><input class="fld" id="c-email" type="email" placeholder="yusuf@email.com"></div>
+            <div class="fg full"><label class="lbl">Phone</label><input class="fld" id="c-phone" placeholder="+234 800 000 0000"></div>
+            <div class="fg full"><label class="lbl">Subject</label><input class="fld" id="c-subj" placeholder="Enquiry about canopy hire..."></div>
+            <div class="fg full"><label class="lbl">Message</label><textarea class="fld" id="c-msg" placeholder="Tell us about your event..."></textarea></div>
+          </div>
+          <div style="display:flex;gap:.8rem;margin-top:1.1rem;">
+            <button class="btn btn-grn" style="flex:1;" onclick="sendContact()">📨 Send Message</button>
+            <button class="btn btn-wa" onclick="openWA('Hello! I sent an enquiry via the website.')"><svg viewBox="0 0 24 24" fill="currentColor" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.057 23.492a.5.5 0 0 0 .613.635l5.757-1.505A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.875 9.875 0 0 1-5.032-1.372l-.36-.214-3.733.977.999-3.645-.235-.374A9.854 9.854 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118c5.466 0 9.882 4.415 9.882 9.882 0 5.466-4.416 9.882-9.882 9.882z"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ ADMIN ══════════════ -->
+<div id="page-admin" class="page">
+
+  <!-- Login gate -->
+  <div id="admin-gate">
+    <div class="login-box">
+      <div class="login-hd">
+        <div class="login-mark">BR</div>
+        <h2>Admin Access</h2>
+        <p>Basmallah Rentals · Staff Only</p>
+      </div>
+      <div class="login-body">
+        <div class="fg" style="margin-bottom:.9rem;">
+          <label class="lbl">Password</label>
+          <input type="password" class="fld" id="admin-pw" placeholder="Enter admin password"
+            onkeydown="if(event.key==='Enter') checkPw()"
+            style="font-size:1rem;letter-spacing:2px;">
+        </div>
+        <div class="pw-error" id="pw-error">❌ Incorrect password. Please try again.</div>
+        <button class="btn btn-grn" style="width:100%;" onclick="checkPw()">🔐 Sign In</button>
+        <div style="text-align:center;margin-top:.9rem;">
+          <a onclick="goto('home')" style="font-size:.79rem;color:var(--tmu);cursor:pointer;text-decoration:underline;">← Back to Website</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard (shown after login) -->
+  <div id="admin-dash">
+    <div class="admin-layout">
+      <div class="admin-sidebar">
+        <div class="admin-brand">Basmallah Admin</div>
+        <div class="admin-label">Main</div>
+        <a class="admin-link active" onclick="showTab('dash')">📊 Dashboard</a>
+        <a class="admin-link" onclick="showTab('bookings')">📋 Bookings <span id="pd" style="width:7px;height:7px;border-radius:50%;background:var(--gd);display:none;margin-left:auto;"></span></a>
+        <a class="admin-link" onclick="showTab('equipment')">🪑 Equipment</a>
+        <a class="admin-link" onclick="showTab('add')">➕ Add Equipment</a>
+        <a class="admin-link" onclick="showTab('enquiries')">💬 Enquiries</a>
+        <a class="admin-link" onclick="showTab('settings')">⚙ Settings</a>
+        <div class="admin-label" style="margin-top:1.5rem;">Actions</div>
+        <a class="admin-link" onclick="goto('home')">← Back to Site</a>
+        <a class="admin-link danger" onclick="adminLogout()">🚪 Sign Out</a>
+      </div>
+      <div class="admin-main">
+
+        <!-- DASHBOARD TAB -->
+        <div id="atab-dash" class="admin-tab active">
+          <div class="a-title">Dashboard</div>
+          <div class="a-sub">Welcome back. Here's how Basmallah Rentals is doing.</div>
+          <div class="act-btns">
+            <button class="btn btn-grn btn-sm" onclick="showTab('bookings')">📋 All Bookings</button>
+            <button class="btn btn-grn btn-sm" onclick="showTab('add')">➕ Add Equipment</button>
+            <button class="btn btn-sm" style="background:var(--gd);color:var(--gr);" onclick="exportCSV()">⬇ Export CSV</button>
+            <button class="btn btn-wa btn-sm" onclick="openWA('Hello! Basmallah Rentals admin here.')">💬 WhatsApp</button>
+          </div>
+          <div class="kpi-row">
+            <div class="card kpi"><div class="kpi-val" id="k-bk">0</div><div class="kpi-lbl">Total Bookings</div><div class="kpi-ch">↑ Growing</div></div>
+            <div class="card kpi"><div class="kpi-val" id="k-pd">0</div><div class="kpi-lbl">Pending</div><div class="kpi-ch" style="color:#856404;">⚠ Needs action</div></div>
+            <div class="card kpi"><div class="kpi-val" id="k-eq">0</div><div class="kpi-lbl">Equipment Items</div><div class="kpi-ch">↑ In catalog</div></div>
+            <div class="card kpi"><div class="kpi-val" id="k-enq">0</div><div class="kpi-lbl">Enquiries</div><div class="kpi-ch">📬 Messages</div></div>
+          </div>
+          <div class="card tbl-wrap">
+            <div class="tbl-head"><span class="tbl-head-title">Recent Bookings</span></div>
+            <div style="overflow-x:auto;"><table><thead><tr><th>Client</th><th>Event</th><th>Date</th><th>Platform</th><th>Status</th><th>Actions</th></tr></thead><tbody id="tb-dash"></tbody></table></div>
+          </div>
+        </div>
+
+        <!-- BOOKINGS TAB -->
+        <div id="atab-bookings" class="admin-tab">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.8rem;margin-bottom:.5rem;">
+            <div><div class="a-title">All Bookings</div><div class="a-sub">Manage and confirm customer equipment bookings.</div></div>
+            <button class="btn btn-sm" style="background:var(--gd);color:var(--gr);" onclick="exportCSV()">⬇ Export CSV</button>
+          </div>
+          <div class="card tbl-wrap">
+            <div style="overflow-x:auto;"><table><thead><tr><th>Ref</th><th>Client</th><th>Phone</th><th>Event Type</th><th>Date</th><th>Venue</th><th>Guests</th><th>Platform</th><th>Status</th><th>Actions</th></tr></thead><tbody id="tb-bk"></tbody></table></div>
+          </div>
+        </div>
+
+        <!-- EQUIPMENT TAB -->
+        <div id="atab-equipment" class="admin-tab">
+          <div class="a-title">Equipment Inventory</div>
+          <div class="a-sub">View, edit and manage rental items. Click price/stock to edit inline.</div>
+          <div class="card tbl-wrap">
+            <div style="overflow-x:auto;"><table><thead><tr><th>Item</th><th>Price</th><th>Stock</th><th>Status</th><th>Actions</th></tr></thead><tbody id="tb-eq"></tbody></table></div>
+          </div>
+        </div>
+
+        <!-- ADD EQUIPMENT TAB -->
+        <div id="atab-add" class="admin-tab">
+          <div class="a-title">Add Equipment</div>
+          <div class="a-sub">Add a new item with a real photo to the rental catalog.</div>
+          <div class="card admin-form">
+            <div class="fg2" style="gap:.9rem;">
+              <div class="fg full"><label class="lbl">Equipment Name *</label><input class="fld" id="ae-name" placeholder="e.g. White Monobloc Chair"></div>
+              <div class="fg"><label class="lbl">Category *</label>
+                <select class="fld" id="ae-cat">
+                  <option>Chairs</option><option>Tables</option><option>Canopies</option><option>Cooking</option><option>Linen</option><option>Lighting</option><option>Other</option>
+                </select>
+              </div>
+              <div class="fg"><label class="lbl">Unit Price (₦) *</label><input class="fld" id="ae-price" type="number" placeholder="150"></div>
+              <div class="fg"><label class="lbl">Stock Count</label><input class="fld" id="ae-stock" type="number" placeholder="500"></div>
+              <div class="fg"><label class="lbl">Price Unit</label>
+                <select class="fld" id="ae-unit"><option>per chair</option><option>per table</option><option>per unit</option><option>per pot</option><option>per day</option><option>per set</option></select>
+              </div>
+              <div class="fg"><label class="lbl">Emoji (fallback)</label><input class="fld" id="ae-icon" placeholder="🪑" maxlength="4"></div>
+              <div class="fg full"><label class="lbl">Description</label><textarea class="fld" id="ae-desc" placeholder="Brief description..."></textarea></div>
+              <div class="fg"><label class="lbl">Badge</label>
+                <select class="fld" id="ae-badge"><option value="">None</option><option>Popular</option><option>Hot</option><option>New</option></select>
+              </div>
+              <div class="fg full">
+                <label class="lbl">Equipment Photo</label>
+                <div class="upload-zone" id="ae-zone" onclick="document.getElementById('ae-file').click()">
+                  <div id="ae-ph" style="padding:1.5rem;"><div style="font-size:2rem;margin-bottom:.4rem;">📷</div><div style="font-weight:600;color:var(--gr);font-size:.88rem;margin-bottom:3px;">Click to upload photo</div><div style="font-size:.75rem;color:var(--tmu);">JPG · PNG · WEBP · Max 5MB</div></div>
+                  <img id="ae-prev" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;">
+                </div>
+                <input type="file" id="ae-file" accept="image/*" style="display:none;" onchange="prevImg(this)">
+                <div style="display:flex;gap:.5rem;margin-top:.5rem;">
+                  <button type="button" class="act-btn" onclick="document.getElementById('ae-file').click()">📁 Choose File</button>
+                  <button type="button" class="act-btn danger" onclick="clearImg()">✕ Clear</button>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-grn" style="margin-top:1.4rem;" onclick="addEquip()">➕ Add to Catalog</button>
+          </div>
+        </div>
+
+        <!-- ENQUIRIES TAB -->
+        <div id="atab-enquiries" class="admin-tab">
+          <div class="a-title">Contact Enquiries</div>
+          <div class="a-sub">Messages sent via the contact form.</div>
+          <div class="card tbl-wrap">
+            <div style="overflow-x:auto;"><table><thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Subject</th><th>Date</th><th>Actions</th></tr></thead><tbody id="tb-enq"></tbody></table></div>
+          </div>
+        </div>
+
+        <!-- SETTINGS TAB -->
+        <div id="atab-settings" class="admin-tab">
+          <div class="a-title">Settings</div>
+          <div class="a-sub">Manage your admin credentials and business info.</div>
+          <div class="card admin-form settings-wrap">
+            <h3 style="font-family:var(--fd);font-size:1.1rem;margin-bottom:1.1rem;">Change Password</h3>
+            <div class="fg2" style="gap:.85rem;">
+              <div class="fg full"><label class="lbl">Current Password</label><input type="password" class="fld" id="pw-curr" placeholder="Current password"></div>
+              <div class="fg full"><label class="lbl">New Password (min 6 chars)</label><input type="password" class="fld" id="pw-new" placeholder="New password"></div>
+              <div class="fg full"><label class="lbl">Confirm New Password</label><input type="password" class="fld" id="pw-conf" placeholder="Repeat new password"></div>
+            </div>
+            <button class="btn btn-grn" style="margin-top:1rem;" onclick="changePw()">🔐 Update Password</button>
+            <div class="pw-msg" id="pw-msg"></div>
+            <hr style="margin:1.5rem 0;border:none;border-top:1px solid var(--bdr);">
+            <h3 style="font-family:var(--fd);font-size:1.1rem;margin-bottom:.8rem;">Business Info</h3>
+            <div style="font-size:.84rem;color:var(--tmu);line-height:1.9;">
+              <div>📍 <strong>Address:</strong> Irewolede, Ilorin, Kwara State, Nigeria</div>
+              <div>📞 <strong>Primary:</strong> 0812 403 8496</div>
+              <div>📞 <strong>Secondary:</strong> 0806 372 6650</div>
+              <div>🌐 <strong>App version:</strong> 3.0 · Single-file PWA</div>
+              <div>🔑 <strong>Admin password:</strong> basmallah2025 <em>(change above)</em></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page-admin -->
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer id="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">Basmallah Rentals</div>
+      <div class="footer-brand-tag">Your trusted event equipment partner in Ilorin, Kwara State. Serving families and organisations since 2018.</div>
+      <div class="footer-socials">
+        <div class="f-soc" onclick="openWA('Hello Basmallah Rentals!')"><svg viewBox="0 0 24 24" fill="currentColor" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.057 23.492a.5.5 0 0 0 .613.635l5.757-1.505A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.875 9.875 0 0 1-5.032-1.372l-.36-.214-3.733.977.999-3.645-.235-.374A9.854 9.854 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118c5.466 0 9.882 4.415 9.882 9.882 0 5.466-4.416 9.882-9.882 9.882z"/></svg></div>
+        <div class="f-soc" onclick="window.open('https://facebook.com')"><svg viewBox="0 0 24 24" fill="currentColor" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>
+        <div class="f-soc" onclick="window.open('https://instagram.com')"><svg viewBox="0 0 24 24" fill="none" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><defs><radialGradient id="igG" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><rect width="20" height="20" x="2" y="2" rx="5" fill="url(#igG)"/><path d="M12 7a5 5 0 1 0 0 10A5 5 0 0 0 12 7zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" fill="white"/><circle cx="17.5" cy="6.5" r="1.25" fill="white"/></svg></div>
+        <div class="f-soc" onclick="window.open('https://tiktok.com')"><svg viewBox="0 0 24 24" fill="currentColor" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-6.13 6.3 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.77a4.85 4.85 0 0 1-1.01-.08z"/></svg></div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a onclick="goto('home')">Home</a>
+      <a onclick="goto('catalog')">Equipment</a>
+      <a onclick="goto('booking')">Book Now</a>
+      <a onclick="goto('contact')">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Location</h4>
+      <a>Irewolede, Ilorin</a>
+      <a>Kwara State, Nigeria</a>
+      <a>📞 0812 403 8496</a>
+      <a>📞 0806 372 6650</a>
+      <a>Mon–Sun: 7am – 9pm</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Basmallah Rentals, Ilorin. All rights reserved.</span>
+    <span>Built for Ilorin events ❤️</span>
+  </div>
+</footer>
+
+<!-- ══════════════ ITEM MODAL ══════════════ -->
+<div class="overlay" id="item-modal">
+  <div class="modal">
+    <div class="modal-hd"><h2 id="mi-name">Item</h2><button class="modal-close" onclick="closeModal()">✕</button></div>
+    <div class="modal-body">
+      <div class="modal-photo" id="mi-photo">🪑</div>
+      <p style="font-size:.84rem;color:var(--tmu);line-height:1.65;margin-bottom:1rem;" id="mi-desc"></p>
+      <div class="modal-qty-row">
+        <div><div style="font-size:.72rem;font-weight:700;color:var(--tmu);text-transform:uppercase;letter-spacing:.4px;margin-bottom:2px;">Quantity</div><div style="font-size:.75rem;color:var(--tmu);" id="mi-unit">per unit</div></div>
+        <div class="modal-qty-ctrl">
+          <button class="modal-qty-btn" onclick="chgQty(-1)">−</button>
+          <span class="modal-qty-num" id="mi-qty">1</span>
+          <button class="modal-qty-btn" onclick="chgQty(1)">+</button>
+        </div>
+      </div>
+      <div class="modal-cost-box">
+        <span class="modal-cost-lbl">Estimated Cost</span>
+        <span class="modal-cost-val" id="mi-cost">₦0</span>
+      </div>
+      <button class="btn btn-grn" style="width:100%;" onclick="addToOrder()">✅ Add to Booking List</button>
+      <p style="text-align:center;margin-top:.6rem;font-size:.72rem;color:var(--tmu);">Final price confirmed via WhatsApp after booking</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ CHATBOT ══════════════ -->
+<button class="chat-fab" onclick="toggleChat()">
+  💬 <span class="chat-badge" id="chat-badge">1</span>
+</button>
+<div class="chat-win" id="chat-win">
+  <div class="chat-hd">
+    <div class="chat-ava">🤖</div>
+    <div><div class="chat-ava-name">Basmallah Assistant</div><div class="chat-ava-status">AI-powered · Usually instant</div></div>
+    <button class="chat-x" onclick="toggleChat()">✕</button>
+  </div>
+  <div class="chat-msgs" id="chat-msgs"></div>
+  <div class="chat-chips" id="chat-chips">
+    <span class="chip" onclick="cs('What equipment do you have?')">🪑 Equipment</span>
+    <span class="chip" onclick="cs('How do I book?')">📋 How to book</span>
+    <span class="chip" onclick="cs('What are your prices?')">💰 Prices</span>
+    <span class="chip" onclick="cs('Do you deliver?')">🚚 Delivery</span>
+  </div>
+  <div class="chat-inp-row">
+    <input type="text" class="chat-inp" id="chat-inp" placeholder="Ask anything..." onkeydown="if(event.key==='Enter')sendChat()">
+    <button class="chat-send" onclick="sendChat()">➤</button>
+  </div>
+</div>
+
+<!-- ══════════════ STICKY BAR ══════════════ -->
+<div class="sticky-bar" id="sticky-bar">
+  <button class="btn btn-wa" style="flex:1;" onclick="openWA('Hello Basmallah Rentals! I want to book equipment for my event in Ilorin.')"><svg viewBox="0 0 24 24" fill="currentColor" style="width:1em;height:1em;vertical-align:middle;display:inline-block;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.057 23.492a.5.5 0 0 0 .613.635l5.757-1.505A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.875 9.875 0 0 1-5.032-1.372l-.36-.214-3.733.977.999-3.645-.235-.374A9.854 9.854 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118c5.466 0 9.882 4.415 9.882 9.882 0 5.466-4.416 9.882-9.882 9.882z"/></svg> WhatsApp</button>
+  <button class="btn btn-gold" style="flex:1;" onclick="goto('booking')">📋 Book Now</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
